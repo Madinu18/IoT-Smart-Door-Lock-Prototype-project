@@ -16,12 +16,11 @@
 RFID rfid(5, 27);
 unsigned char str[MAX_LEN];
 
-const int button = 32; //pin push button
+const int button = 32;
 
-//const int selenoid =  12; //pin selenoid
 Servo myServo;
 
-const int buzzer = 26; //pin buzzer
+const int buzzer = 26;
 
 
 
@@ -64,7 +63,7 @@ void setup()
   
   pinMode(button, INPUT);
   
-  myServo.attach(13);//servo pin
+  myServo.attach(13);
   
   pinMode(buzzer, OUTPUT);
 
@@ -120,9 +119,9 @@ void pushButton(int nilai)
 
 void bukaPintu()
 {
-  myServo.write(20); //30
+  myServo.write(20);
   delay(5000);
-  myServo.write(120); //90
+  myServo.write(120);
 }
 
 void bipBenar()
@@ -161,8 +160,8 @@ void bipAlarm()
 void loop() {
   timeClient.update();
   int vib = digitalRead(VibSen);
-  if(vib == HIGH){            //Jika ada getaran, maka  
-    bipAlarm();  //LED menyala
+  if(vib == HIGH){
+    bipAlarm();
     Serial.println("sensor gertar nyala");
   }
 
@@ -192,5 +191,5 @@ void loop() {
     } 
     rfid.selectTag(str);
   }
-  rfid.halt();
+  rfid.halt();
 }
